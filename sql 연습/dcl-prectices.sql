@@ -1,3 +1,6 @@
+-- 테이블 확인
+show tables
+
 -- 데이터베이스 생성
 create database webdb;
 
