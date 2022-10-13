@@ -16,11 +16,11 @@ order by hire_date asc;
 
 -- 문제3.
 -- 여직원과 남직원은 각 각 몇 명이나 있나요?
-select  gender as '성별', count(*) as '직원 수'
+select gender as '성별', count(*) as '직원 수'
   from employees
 where gender = 'm';
 
-select  gender as '성별', count(*) as '직원 수'
+select gender as '성별', count(*) as '직원 수'
   from employees
 where gender = 'f';
 
