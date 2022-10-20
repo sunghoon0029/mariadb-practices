@@ -25,7 +25,7 @@ try:
     db.close()
 
     # 결과 확인
-    print(f'실행결과: {count}')
+    print(f'실행결과: {"성공" if count == 1 else "실패"}')
 
     # 에러 처리
 except OperationalError as e:
