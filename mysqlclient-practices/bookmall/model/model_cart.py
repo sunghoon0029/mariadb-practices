@@ -11,13 +11,15 @@ def conn():
         charset='utf8')
     return db
 
+# -----------------------------------------------------
+
 def findall():
     try:
         db = conn()
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select cart_no, count from cart order by cart_no asc'
+        sql = 'select cart_no, quantity from cart order by cart_no asc'
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -30,16 +32,16 @@ def findall():
     except OperationalError as e:
         print(f'에러: {e}')
 
+# -----------------------------------------------------
 
-
-def insert(cartcount):
+def insert(quantity):
     try:
         db = conn()
 
         cursor = db.cursor()
 
         sql = 'insert into cartegory values(null, %s)'
-        count = cursor.execute(sql, (cartcount, ))
+        count = cursor.execute(sql, (quantity, ))
 
         db.commit()
 
