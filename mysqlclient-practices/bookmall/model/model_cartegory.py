@@ -29,8 +29,18 @@ def findall():
 
     except OperationalError as e:
         print(f'에러: {e}')
+        
+# -----------------------------------------------------
+def run_list():
+    results = findall()
+    
+    print('<카테고리 리스트>')
+    
+    for index, result in enumerate(results):
+        
+        print(f'{index + 1} - {result["category"]}')
 
-
+# -----------------------------------------------------
 
 def insert(cartegoryname):
     try:
@@ -50,3 +60,12 @@ def insert(cartegoryname):
 
     except OperationalError as e:
         print(f'에러: {e}')
+        
+# -----------------------------------------------------
+
+def run_add():
+    category = input('category : ')
+
+    insert(category)
+
+    run_list()
