@@ -31,15 +31,6 @@ def findall():
 
     except OperationalError as e:
         print(f'에러: {e}')
-
-# -----------------------------------------------------
-
-def run_list():
-    results = findall()
-    
-    print('<상품 리스트>')
-    for index, result in enumerate(results):
-        print(f'{index + 1} - 제목 : {result["book_name"]} / 가격 : {result["price"]}')
         
 # -----------------------------------------------------
 
@@ -61,14 +52,3 @@ def insert(bookname, price, cartegoryno):
 
     except OperationalError as e:
         print(f'에러: {e}')
-
-# -----------------------------------------------------
-
-def run_add():
-    title = input('book_name : ')
-    price = input('price : ')
-    categorys_no = input('categorys_no : ')
-
-    insert(book_name, price, categorys_no)
-    
-    run_list()
