@@ -50,7 +50,3 @@ def insert(cartegoryname):
 
     except OperationalError as e:
         print(f'에러: {e}')
-
-
-
-
