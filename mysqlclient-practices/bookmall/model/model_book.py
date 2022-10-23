@@ -19,7 +19,7 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select book_name, price from book order by book_no asc'
+        sql = 'select a.category_no, b.book_name, b.price, a.category_name from category a , book b where a.category_no =b.category_no'
         cursor.execute(sql)
 
         results = cursor.fetchall()
