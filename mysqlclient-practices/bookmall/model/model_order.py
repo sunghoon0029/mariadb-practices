@@ -11,6 +11,8 @@ def conn():
         charset='utf8')
     return db
 
+# -----------------------------------------------------
+
 def findall():
     try:
         db = conn()
@@ -30,7 +32,7 @@ def findall():
     except OperationalError as e:
         print(f'에러: {e}')
 
-
+# -----------------------------------------------------
 
 def insert(price, address):
     try:
