@@ -17,7 +17,7 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select book_no, book_name, price from book order by book_no asc'
+        sql = 'select book_name, price from book order by book_no asc'
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -50,7 +50,3 @@ def insert(bookname, price, cartegoryno):
 
     except OperationalError as e:
         print(f'에러: {e}')
-
-
-
-
