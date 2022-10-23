@@ -32,14 +32,14 @@ def findall():
 
 
 
-def insert(membername, phonenumber, email, password):
+def insert(membername, tel, email, password):
     try:
         db = conn()
 
         cursor = db.cursor()
 
         sql = 'insert into cartegory values(null, %s, %s, %s, %s)'
-        count = cursor.execute(sql, (membername, phonenumber, email, password))
+        count = cursor.execute(sql, (membername, tel, email, password))
 
         db.commit()
 
