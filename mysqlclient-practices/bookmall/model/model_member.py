@@ -11,13 +11,15 @@ def conn():
         charset='utf8')
     return db
 
+# -----------------------------------------------------
+
 def findall():
     try:
         db = conn()
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select meber_no, name, phone_number, email, password from member order by member_no asc'
+        sql = 'select member_no, member_name, tel, email, password from member order by member_no asc'
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -30,7 +32,7 @@ def findall():
     except OperationalError as e:
         print(f'에러: {e}')
 
-
+# -----------------------------------------------------
 
 def insert(membername, tel, email, password):
     try:
