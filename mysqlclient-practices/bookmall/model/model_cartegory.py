@@ -31,6 +31,7 @@ def findall():
         print(f'에러: {e}')
         
 # -----------------------------------------------------
+
 def run_list():
     results = findall()
     
