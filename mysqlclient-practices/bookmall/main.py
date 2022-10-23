@@ -1,4 +1,8 @@
-from bookmall.model import model_member, model_book
+from bookmall.model import model_cartegory
+from bookmall.model import model_book
+from bookmall.model import model_cart
+from bookmall.model import model_member
+from bookmall.model import model_orders
 
 
 def run_list1():
