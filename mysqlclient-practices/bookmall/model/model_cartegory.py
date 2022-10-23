@@ -11,6 +11,8 @@ def conn():
         charset='utf8')
     return db
 
+# -----------------------------------------------------
+
 def findall():
     try:
         db = conn()
