@@ -19,7 +19,7 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select member_no, member_name, tel, email, password from member order by member_no asc'
+        sql = 'select member_name, tel, email, password from member'
         cursor.execute(sql)
 
         results = cursor.fetchall()
