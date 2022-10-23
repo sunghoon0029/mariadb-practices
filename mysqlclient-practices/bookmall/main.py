@@ -52,21 +52,21 @@ for index, result in enumerate(results):
 
 print('주문 리스트')
 
-model_order.insert('000000001', '15000', '삼국지', 2)
+model_orders.insert('15000', '비트교육센터', 2)
 
-results=model_order.findall()
+results=model_orders.findall()
 
 for index, result in enumerate(results):
-    print(f'{index+1}:주문번호:{result["ordersno"]}, {result["bookname"]}, {result["email"]}, 결제금액:{result["price"]}, {result["address"]}')
+    print(f'{index+1}:제목:{result["bookname"]}, {result["email"]}, 결제금액:{result["price"]}, {result["address"]}')
 
 # ------------------------------------------------------------------    
     
 print('주문도서 리스트')
 
-model_order.insert_order_book(1,1,1)
-model_order.insert_order_book(2,1,2)
+model_orders.insert_order_book(1,1,1)
+model_orders.insert_order_book(2,1,2)
 
-results= model_order.findall_order_book()
+results= model_orders.findall_order_book()
 
 for index, result in enumerate(results):
     print(f'{index+1}:도서번호:{result["bookno"]}, {result["bookname"]}, 수량:{result["quantity"]}')
