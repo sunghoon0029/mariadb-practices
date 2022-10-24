@@ -19,7 +19,8 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select cartegory_no, cartegory_name from cartegory order by cartegory_no asc'
+        sql = 'select cartegory_no, cartegory_name from cartegory'
+
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -31,17 +32,18 @@ def findall():
 
     except OperationalError as e:
         print(f'에러: {e}')
-        
+
 # -----------------------------------------------------
 
-def insert(cartegoryname):
+def insert(cartegory_name):
     try:
         db = conn()
 
         cursor = db.cursor()
 
         sql = 'insert into cartegory values(null, %s)'
-        count = cursor.execute(sql, (cartegoryname, ))
+
+        count = cursor.execute(sql, (cartegory_name,))
 
         db.commit()
 
