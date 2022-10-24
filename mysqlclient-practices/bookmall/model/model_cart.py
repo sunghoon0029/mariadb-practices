@@ -19,7 +19,8 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select b.book_name , a.quantity , b.price from cart a , book b where a.cart_no = b.book_no
+        sql = 'select b.book_name , a.quantity , b.price from cart a , book b, member c where a.book_no = b.book_no and a.member_no = c.member_no'
+
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -40,7 +41,8 @@ def insert(quantity):
 
         cursor = db.cursor()
 
-        sql = 'insert into cartegory values(null, %s)'
+        sql = 'insert into cart values(null, %s)'
+
         count = cursor.execute(sql, (quantity, ))
 
         db.commit()
