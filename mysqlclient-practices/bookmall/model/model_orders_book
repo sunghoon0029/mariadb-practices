@@ -19,7 +19,7 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-        sql = 'select a.book_no, a.book_name, b.price from book a , orders_book b where a.book_no = b.book_no'
+        sql = 'select b.book_no, b.book_name, a.quantity from orders_book a, book b where a.book_no = b.book_no'
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -34,14 +34,14 @@ def findall():
 
 # -----------------------------------------------------
 
-def insert(book_no, price):
+def insert(book_no, quantity):
     try:
         db = conn()
 
         cursor = db.cursor()
 
-        sql = 'insert into orders values(null, %s, %s)'
-        count = cursor.execute(sql, (book_no, price))
+        sql = 'insert into orders_book values(null, %s, %s)'
+        count = cursor.execute(sql, (book_no, quantity))
 
         db.commit()
 
