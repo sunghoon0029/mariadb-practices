@@ -12,10 +12,6 @@ def conn():
         charset='utf8')
     return db
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 25f91cee2a90434ed9f96cf45d808c861d3c1be6
 # -----------------------------------------------------
 
 def findall():
@@ -24,11 +20,8 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-<<<<<<< HEAD
-        sql = 'select a.category_no, b.book_name, b.price, a.category_name from category a , book b where a.category_no = b.book_no'
-=======
-        sql = 'select a.category_no, b.book_name, b.price, a.category_name from category a , book b where a.category_no =b.category_no'
->>>>>>> 25f91cee2a90434ed9f96cf45d808c861d3c1be6
+        sql = 'select book_no, book_name, price from book'
+
         cursor.execute(sql)
 
         results = cursor.fetchall()
@@ -40,22 +33,17 @@ def findall():
 
     except OperationalError as e:
         print(f'에러: {e}')
-<<<<<<< HEAD
 
-
-=======
-        
->>>>>>> 25f91cee2a90434ed9f96cf45d808c861d3c1be6
 # -----------------------------------------------------
 
-def insert(book_name, price, cartegory_no):
+def insert(book_name, price):
     try:
         db = conn()
 
         cursor = db.cursor()
 
-        sql = 'insert into book values(null, %s, %s, %s)'
-        count = cursor.execute(sql, (book_name, price, cartegory_no))
+        sql = 'insert into book values(null, %s, %s)'
+        count = cursor.execute(sql, (book_name, price))
 
         db.commit()
 
@@ -65,8 +53,4 @@ def insert(book_name, price, cartegory_no):
         return count == 1
 
     except OperationalError as e:
-<<<<<<< HEAD
         print(f'에러: {e}')
-=======
-        print(f'에러: {e}')
->>>>>>> 25f91cee2a90434ed9f96cf45d808c861d3c1be6
