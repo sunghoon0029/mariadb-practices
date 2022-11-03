@@ -19,11 +19,8 @@ def findall():
 
         cursor = db.cursor(DictCursor)
 
-<<<<<<< HEAD
-        sql = 'select a.orders_no, b.member_name, b.email, b.address, a.price from orders a , member b where a.member_no = b.member_no'
-=======
-        sql = 'select a.orders_no, b.member_name, b.email, b.address, b.price from orders a , member b where a.member_no = b.member_no'
->>>>>>> branch 'main' of https://github.com/sunghoon0029/mariadb-practices.git
+        sql = 'select b.book_no, b.book_name, a.quantity from orders_book a, book b where a.book_no = b.book_no'
+        cursor.execute(sql)
 
         results = cursor.fetchall()
 
@@ -37,14 +34,14 @@ def findall():
 
 # -----------------------------------------------------
 
-def insert(price, address, member_no):
+def insert(book_no, quantity):
     try:
         db = conn()
 
         cursor = db.cursor()
 
-        sql = 'insert into orders values(null, %s, %s, %s)'
-        count = cursor.execute(sql, (price, address, member_no))
+        sql = 'insert into orders_book values(null, %s, %s)'
+        count = cursor.execute(sql, (book_no, quantity))
 
         db.commit()
 
