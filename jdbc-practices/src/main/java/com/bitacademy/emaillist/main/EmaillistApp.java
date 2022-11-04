@@ -34,7 +34,7 @@ public class EmaillistApp {
 		System.out.println("이메일:");
 		String email = scanner.nextLine();
 		
-		boolean list = new EmaillistDao().deleteByEmail(email);
+		new EmaillistDao().deleteByEmail(email);
 		
 		doList();
 	}
@@ -49,9 +49,12 @@ public class EmaillistApp {
 		System.out.print("이메일:");
 		String email = scanner.nextLine();
 		
-		System.out.println(firstName + ":" + lastName + ":" + email);
+		EmaillistVo vo = new EmaillistVo();
+		vo.setFirstName(firstName);
+		vo.setLastName(lastName);
+		vo.setEmail(email);
 		
-		Boolean list = new EmaillistDao().insert(firstName, lastName, email);
+		new EmaillistDao().insert(vo);
 		
 		doList();
 		
@@ -62,6 +65,5 @@ public class EmaillistApp {
 		for(EmaillistVo vo : list) {
 			System.out.println("이름:" + vo.getFirstName() + " " +  vo.getLastName() + "이메일:" + vo.getEmail());
 		}
-		
 	}
 }
